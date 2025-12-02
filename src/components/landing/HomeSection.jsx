@@ -38,7 +38,7 @@ const HomeSection = () => {
 
 
       {/* Top-right pill: TopRight image */}
-      <div className="hidden sm:flex items-center absolute top-10 right-4 blur-[1.5px] sm:right-10 justify-center max-w-[280px] sm:max-w-[350px] lg:max-w-[413px] h-auto sm:h-[36px] lg:h-[46px] rounded-[12px] bg-[#FFFFFF] px-2 sm:px-[9.46px]">
+      <div className="hidden sm:flex items-center absolute top-10 right-4 blur-[1.5px] sm:right-10 justify-center max-w-[280px] sm:max-w-[350px] lg:max-w-[413px] h-auto sm:h-[36px] lg:h-[46px] px-2 sm:px-[9.46px]">
         <img
           src={TopRight}
           alt="Smarter way to pay badge"
@@ -49,7 +49,7 @@ const HomeSection = () => {
       {/* Main content */}
       <div className="relative z-10 mx-auto flex flex-col items-center text-center text-[#0E101E] max-w-[744px] w-full mb-16 sm:mb-24 lg:mb-40 px-4 sm:px-6 lg:px-0">
         <h1
-          className="text-[28px] leading-[36px] sm:text-[36px] sm:leading-[44px] lg:text-[48px] lg:leading-[56px] font-semibold text-[#762A96] px-2 whitespace-nowrap"
+          className="text-[24px] leading-[32px] sm:text-[32px] sm:leading-[40px] md:text-[36px] md:leading-[44px] lg:text-[48px] lg:leading-[56px] font-semibold text-[#762A96] px-2 sm:whitespace-nowrap"
           style={{
             fontFamily:
               '"Gilroy-SemiBold", "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
