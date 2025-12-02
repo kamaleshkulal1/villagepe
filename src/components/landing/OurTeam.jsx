@@ -1,5 +1,4 @@
 import React from "react"
-import Team from "../../assets/Team.png"
 import Venkatesh from "../../assets/Venkatesh.png";
 import Basavaraj from "../../assets/Basavaraj.png";
 import Yuvaraj from "../../assets/Yuvaraj.png";
