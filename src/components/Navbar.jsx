@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Simplelogo from '../assets/Simplelogo.png';
 import { FaBars, FaTimes, FaGooglePlay } from 'react-icons/fa';
 
 const Navbar = ({ activeSection, setActiveSection }) => {
@@ -29,7 +28,6 @@ const Navbar = ({ activeSection, setActiveSection }) => {
         <button className="lg:hidden text-2xl text-rose-500" onClick={() => setMenuOpen(true)}>
           <FaBars />
         </button>
-        <img src={Simplelogo} alt="Logo" className="h-10 w-auto" />
         <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 space-x-6">
           {["home", "services", "about", "contact"].map((item) => (
             <a

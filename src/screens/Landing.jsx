@@ -11,12 +11,15 @@ import OurTeam from "../components/landing/OurTeam";
 import WhatWeDoVisionSection from "../components/landing/WhatWeDoVisionSection.jsx"
 
 
-const sectionIds = ["home", "services", "about", "contact"];
+const sectionIds = ["home", "services", "products", "team", "about-us", "contact"];
 
 const sectionHashMap = {
   home: "home",
-  "about-us": "about",
-  products: "services",
+  services: "services",
+  products: "products",
+  team: "team",
+  "about-us": "about-us",
+  contact: "contact",
   "contact-us": "contact",
 };
 
@@ -97,14 +100,15 @@ const Landing = () => {
   }, [activeSection]);
 
   return (
-    <div className="border-2 border-sky-400">
-      <main className="pt-[96px]">
-        <nav className="fixed top-0 left-0 min-w-full z-20 bg-[#FFFFFF] shadow-[-2px_1px_3.7px_0px_#00000040] px-4 lg:px-8 h-[96px] flex items-center">
-          <div className="flex items-center justify-between container mx-auto gap-6">
+    <div>
+      <main className="pt-[80px] sm:pt-[88px] lg:pt-[96px]">
+        <nav className="fixed top-0 left-0 w-full z-20 bg-[#FFFFFF] shadow-[-2px_1px_3.7px_0px_#00000040] px-3 sm:px-4 lg:px-8 h-[80px] sm:h-[88px] lg:h-[96px] flex items-center">
+          <div className="flex items-center justify-between w-full container mx-auto gap-3 sm:gap-4 lg:gap-6">
             {/* Mobile menu button */}
             <button
-              className="lg:hidden text-2xl text-purple-700"
+              className="lg:hidden text-2xl text-purple-700 hover:text-purple-900 transition-colors"
               onClick={() => setMenuOpen(true)}
+              aria-label="Open menu"
             >
               <FaBars />
             </button>
@@ -113,9 +117,9 @@ const Landing = () => {
             <div className="hidden lg:flex flex-1 ml-52 justify-center space-x-6">
               {[
                 { id: "home", label: "Home" },
-                { id: "services", label: "Products" },
+                { id: "products", label: "Products" },
                 { id: "team", label: "Our Team" },
-                { id: "about", label: "About us" },
+                { id: "about-us", label: "About us" },
                 { id: "press", label: "Press" },
                 { id: "careers", label: "Careers" },
                 { id: "contact", label: "Contact us" },
@@ -125,6 +129,19 @@ const Landing = () => {
                   <a
                     key={item.id}
                     href={`#${item.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const targetId = item.id;
+                      setActiveSection(targetId);
+                      const element = document.getElementById(targetId);
+                      if (element) {
+                        element.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }
+                      const hash = reverseSectionHashMap[targetId] || targetId;
+                      if (window.location.hash !== `#${hash}`) {
+                        window.history.replaceState(null, "", `#${hash}`);
+                      }
+                    }}
                     className={`relative inline-flex flex-col items-center text-[18px] leading-[27px] px-3 py-1.5 ${isActive
                       ? "font-medium text-[#762A96]"
                       : "font-normal text-[#0E101E] hover:text-[#0E101E]"
@@ -154,16 +171,16 @@ const Landing = () => {
       {menuOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-30" onClick={() => setMenuOpen(false)}></div>
       )}
-      <div className={`fixed top-0 left-0 w-64 h-full bg-white shadow-lg p-6 transition-transform ${menuOpen ? "translate-x-0" : "-translate-x-64"} top-[2rem] z-40`}>
-        <button className="absolute top-4 right-4 text-gray-700" onClick={() => setMenuOpen(false)}>
+      <div className={`fixed top-0 left-0 w-64 h-full bg-white shadow-lg p-6 transition-transform duration-300 ${menuOpen ? "translate-x-0" : "-translate-x-full"} z-40`}>
+        <button className="absolute top-4 right-4 text-gray-700 hover:text-gray-900" onClick={() => setMenuOpen(false)}>
           <FaTimes size={20} />
         </button>
         <nav className="flex flex-col space-y-6 mt-6">
           {[
             { id: "home", label: "Home" },
-            { id: "services", label: "Products" },
+            { id: "products", label: "Products" },
             { id: "team", label: "Our Team" },
-            { id: "about", label: "About us" },
+            { id: "about-us", label: "About us" },
             { id: "press", label: "Press" },
             { id: "careers", label: "Careers" },
             { id: "contact", label: "Contact us" },
@@ -176,9 +193,10 @@ const Landing = () => {
                   e.preventDefault();
                   const targetId = item.id;
                   setActiveSection(targetId);
-                  document
-                    .getElementById(targetId)
-                    ?.scrollIntoView({ behavior: "smooth" });
+                  const element = document.getElementById(targetId);
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }
 
                   const hash = reverseSectionHashMap[targetId] || targetId;
                   if (window.location.hash !== `#${hash}`) {
@@ -187,19 +205,22 @@ const Landing = () => {
 
                   setMenuOpen(false);
                 }}
-                className={`text-[18px] leading-[27px] px-2 py-1 rounded-md ${isActive
-                  ? "font-medium text-[#0E101E]"
+                className={`relative text-[18px] leading-[27px] px-2 py-1 rounded-md ${isActive
+                  ? "font-medium text-[#762A96]"
                   : "font-normal text-[#0E101E]"
                   }`}
               >
-                {item.label}
+                <span>{item.label}</span>
+                {isActive && (
+                  <span className="absolute bottom-0 left-2 h-[2px] sm:h-[2.5px] lg:h-[3px] w-[24px] sm:w-[28px] lg:w-[32px] rounded-full bg-[#762A96]" />
+                )}
               </a>
             );
           })}
 
           <Link
             to="/download"
-            className="mt-4 bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 justify-center hover:bg-purple-800 transition"
+            className="mt-4 bg-[#762A96] text-white px-7 py-2.5 rounded-full text-sm font-semibold flex items-center gap-2 justify-center hover:bg-purple-800 transition"
           >
             <FaGooglePlay size={18} />
             Download App
@@ -223,7 +244,7 @@ const Landing = () => {
         <ArrowUp size={30} />
       </button>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
