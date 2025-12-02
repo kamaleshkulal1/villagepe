@@ -26,7 +26,7 @@ const AboutSection = () => {
           Our Products
         </h1>
         <p
-          className="text-[16px] sm:text-[18px] lg:text-[22px] font-medium text-[#0E101E] max-w-4xl mx-auto px-2"
+          className="text-[16px] sm:text-[18px] lg:text-[22px] font-medium text-[#0E101E] max-w-4xl mx-auto px-2 lg:whitespace-nowrap"
           style={{
             fontFamily:
               '"Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',

@@ -4,10 +4,11 @@ import Venkatesh from "../../assets/Venkatesh.png";
 import Basavaraj from "../../assets/Basavaraj.png";
 import Yuvaraj from "../../assets/Yuvaraj.png";
 import NandhaKrishna from "../../assets/NandhaKrishna.png";
+import Mamatha from "../../assets/Mamatha.png"
 
 const teamMembers = [
     { name: "Nanda Krishna", role: "Director", img: NandhaKrishna },
-    { name: "Mamatha", role: "Director", img: Team },
+    { name: "Mamatha", role: "Director", img: Mamatha },
     { name: "Basavaraj", role: "Director", img: Basavaraj },
     { name: "Yuvraj MP", role: "Director", img: Yuvaraj },
     { name: "Venkatesha", role: "CEO", img: Venkatesh },
