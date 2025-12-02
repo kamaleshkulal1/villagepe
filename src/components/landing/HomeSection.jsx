@@ -49,7 +49,7 @@ const HomeSection = () => {
       {/* Main content */}
       <div className="relative z-10 mx-auto flex flex-col items-center text-center text-[#0E101E] max-w-[744px] w-full mb-16 sm:mb-24 lg:mb-40 px-4 sm:px-6 lg:px-0">
         <h1
-          className="text-[28px] leading-[36px] sm:text-[36px] sm:leading-[44px] lg:text-[48px] lg:leading-[56px] font-semibold text-[#762A96] px-2 whitespace-nowrap overflow-x-auto"
+          className="text-[28px] leading-[36px] sm:text-[36px] sm:leading-[44px] lg:text-[48px] lg:leading-[56px] font-semibold text-[#762A96] px-2 whitespace-nowrap"
           style={{
             fontFamily:
               '"Gilroy-SemiBold", "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
